@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudeep Yadav | Software Development Engineer in Test</title>
+    <link rel="icon" href="fav1.png" type="fav1.png">
+    <title>Sudeep-SDET Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,7 +14,6 @@
             --danger: #e74c3c;
             --success: #2ecc71;
             --warning: #f39c12;
-            --whatsapp: #25D366;
         }
 
         * {
@@ -27,16 +27,13 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
-            overflow-x: hidden;
         }
-
         .skill i {
-            margin-right: 8px;
-            width: 20px;
-            text-align: center;
-            color: var(--primary);
+               margin-right: 8px;
+                width: 20px;
+                text-align: center;
+                color: var(--primary); /* or any color you prefer */
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -45,25 +42,17 @@
 
         /* Header Styles */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('bg5.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(135deg, var(--dark), var(--primary));
             color: white;
             padding: 2rem 0;
             text-align: center;
             position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
         }
 
         .header-content {
             position: relative;
             z-index: 2;
-            padding: 0 20px;
-            width: 100%;
         }
 
         .profile-img {
@@ -85,7 +74,6 @@
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 1.5rem;
-            padding: 0 15px;
         }
 
         .social-links {
@@ -127,7 +115,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
-            flex-wrap: wrap;
         }
 
         .logo {
@@ -135,18 +122,15 @@
             color: var(--dark);
             text-decoration: none;
             font-size: 1.2rem;
-            margin-bottom: 10px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .nav-links li {
-            margin: 0 0.5rem;
+            margin-left: 2rem;
         }
 
         .nav-links a {
@@ -155,8 +139,6 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
-            padding: 5px 0;
-            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
@@ -169,7 +151,7 @@
             width: 0;
             height: 2px;
             background: var(--primary);
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             transition: width 0.3s ease;
         }
@@ -178,14 +160,22 @@
             width: 100%;
         }
 
+        /* Mobile menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
         /* Section Styles */
         section {
-            padding: 3rem 0;
+            padding: 4rem 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             position: relative;
         }
 
@@ -210,19 +200,19 @@
         /* About Section */
         .about-content {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
+            align-items: flex-start;
         }
 
         .about-text p {
             margin-bottom: 1rem;
-            text-align: justify;
         }
 
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 1rem;
             margin-top: 1rem;
         }
 
@@ -232,8 +222,6 @@
             border-radius: 20px;
             font-size: 0.9rem;
             color: var(--dark);
-            display: flex;
-            align-items: center;
         }
 
         /* Experience Section */
@@ -250,16 +238,15 @@
             background-color: var(--primary);
             top: 0;
             bottom: 0;
-            left: 31px;
+            left: 50%;
+            margin-left: -1px;
         }
 
         .timeline-item {
             padding: 10px 40px;
             position: relative;
-            width: 100%;
+            width: 50%;
             box-sizing: border-box;
-            padding-left: 70px;
-            padding-right: 25px;
         }
 
         .timeline-item::after {
@@ -271,8 +258,23 @@
             border: 4px solid var(--primary);
             border-radius: 50%;
             top: 15px;
-            left: 21px;
             z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
         }
 
         .timeline-content {
@@ -304,8 +306,8 @@
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .project-card {
@@ -321,33 +323,31 @@
         }
 
         .project-img {
-            height: 180px;
+            height: 200px;
             background-color: #eee;
             background-size: cover;
             background-position: center;
         }
 
         .project-info {
-            padding: 1.2rem;
+            padding: 1.5rem;
         }
 
         .project-info h3 {
             margin-bottom: 0.5rem;
             color: var(--dark);
-            font-size: 1.2rem;
         }
 
         .project-info p {
             margin-bottom: 1rem;
             color: #666;
-            font-size: 0.95rem;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .tech-tag {
@@ -361,13 +361,13 @@
         /* Contact Section */
         .contact-container {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
         }
 
         .contact-info {
             background-color: white;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
@@ -397,13 +397,6 @@
             flex-shrink: 0;
         }
 
-        .contact-form {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -412,7 +405,6 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-family: inherit;
-            font-size: 1rem;
         }
 
         .contact-form textarea {
@@ -431,19 +423,10 @@
             font-weight: 500;
             transition: background-color 0.3s ease;
             width: 100%;
-            font-size: 1rem;
         }
 
         .btn:hover {
             background-color: var(--dark);
-        }
-
-        .whatsapp-btn {
-            background-color: var(--whatsapp);
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
         }
 
         /* Footer */
@@ -456,86 +439,145 @@
         }
 
         /* Responsive Styles */
-        @media (min-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr 1fr;
-            }
-
+        @media (max-width: 992px) {
+            .about-content,
             .contact-container {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
-            .timeline::after {
-                left: 50%;
-                margin-left: -1px;
-            }
-
-            .timeline-item {
-                width: 50%;
-                padding-left: 40px;
-                padding-right: 40px;
-            }
-
-            .timeline-item::after {
-                left: auto;
-                right: -10px;
-            }
-
-            .left {
-                left: 0;
-            }
-
-            .right {
-                left: 50%;
-            }
-
-            .right::after {
-                left: -10px;
-            }
-
-            .nav-container {
-                flex-direction: row;
-            }
-
-            .nav-links {
-                margin-top: 0;
-            }
-
-            .nav-links li {
-                margin-left: 1.5rem;
-                margin-right: 0;
-            }
-
-            .tagline {
-                font-size: 1.3rem;
-            }
-
-            .btn {
-                width: auto;
+            .skills-container {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (min-width: 992px) {
+        @media (max-width: 768px) {
             h1 {
-                font-size: 3rem;
+                font-size: 2rem;
             }
 
             .tagline {
-                font-size: 1.5rem;
+                font-size: 1rem;
             }
 
             .profile-img {
-                width: 180px;
-                height: 180px;
+                width: 120px;
+                height: 120px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left::after,
+            .right::after {
+                left: 21px;
+            }
+
+            .left,
+            .right {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: left 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-item span {
+                font-size: 0.9rem;
+            }
+
+            .certifications {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .certification-card {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .timeline-content ul {
+                font-size: 0.9rem;
+            }
+
+            .contact-container {
+                gap: 1rem;
+            }
+
+            .contact-info, .contact-form {
+                padding: 1.5rem;
+            }
+
+            header {
+                padding: 1.5rem 0;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-    <header>
+    <header style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('bg5.jpg'); background-size: cover; background-position: center;">
         <div class="header-content">
-            <img src="Sudeep_Passport_Photo.jpeg" alt="Sudeep Yadav" class="profile-img">
+            <img src="SPPhoto.jpeg" alt="Sudeep Yadav" class="profile-img">
             <h1>Sudeep Yadav</h1>
             <p class="tagline">Software Development Engineer in Test | ISTQB Certified | Expert in Selenium & Appium Automation with Python</p>
             <div class="social-links">
@@ -552,6 +594,9 @@
     <nav>
         <div class="container nav-container">
             <a href="#" class="logo">Sudeep Yadav</a>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -587,8 +632,8 @@
                     Vimal Tormal Poddar BCA & BCOM College | Veer Narmad South Gujarat University, Surat (2017)</p>
                     <p><strong>12th Commerce</strong><br>
                     Smt S V Rao New Model Higher Secondary School | Gujarat Board, Surat (2014)</p>
-                    <p><strong>10th </strong><br>
-                    Gujarat Board, Surat (2014)</p>
+                      <p><strong>10th </strong><br>
+                     | Gujarat Board, Surat (2014)</p>
                 </div>
             </div>
         </div>
@@ -703,11 +748,11 @@
                     <div class="project-info">
                         <h3>Meaty - Delivery Service</h3>
                         <p>Tested end-to-end delivery flow on iOS and Android platforms, ensuring smooth order placement and timely doorstep delivery.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Appium</span>
+                        <span>
+                        <span class="tech-tag">Appium</span>
                             <span class="tech-tag">BDD</span>
                             <span class="tech-tag">Python</span>
-                        </div>
+                        </span>
                     </div>
                 </div>
                 <div class="project-card">
@@ -732,63 +777,65 @@
             <div class="section-title">
                 <h2>Technical Skills</h2>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+            <div class="skills-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <div>
                     <h3 style="margin-bottom: 1rem;">Programming & Automation</h3>
+
+
                     <div class="skills">
-                        <span class="skill"><i class="fab fa-python"></i> Python</span>
-                        <span class="skill"><i class="fas fa-globe"></i> Selenium</span>
-                        <span class="skill"><i class="fas fa-mobile-alt"></i> Appium</span>
-                        <span class="skill"><i class="fas fa-plug"></i> API Testing</span>
-                        <span class="skill"><i class="fas fa-flask"></i> Pytest Framework</span>
-                        <span class="skill"><i class="fas fa-database"></i> Data-Driven Framework</span>
-                        <span class="skill"><i class="fas fa-check-circle"></i> UnitTest</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">Selenium</span>
+                        <span class="skill">Appium</span>
+                        <span class="skill">API Testing</span>
+                        <span class="skill">Pytest Framework</span>
+                        <span class="skill">Data-Driven Framework</span>
+                        <span class="skill">UnitTest</span>
                     </div>
 
                     <h3 style="margin: 1.5rem 0 1rem 0;">Testing Platforms & Tools</h3>
                     <div class="skills">
-                        <span class="skill"><i class="fas fa-window-maximize"></i> Browser Stack</span>
-                        <span class="skill"><i class="fas fa-cloud"></i> Lambdatest</span>
-                        <span class="skill"><i class="fas fa-network-wired"></i> Charles Proxy</span>
-                        <span class="skill"><i class="fab fa-jenkins"></i> Jenkins</span>
-                        <span class="skill"><i class="fab fa-github"></i> GitHub Actions</span>
+                        <span class="skill">Browser Stack</span>
+                        <span class="skill">Lambdatest</span>
+                        <span class="skill">Charles Proxy</span>
+                        <span class="skill">Jenkins</span>
+                        <span class="skill">GitHub Actions</span>
                     </div>
                 </div>
                 <div>
                     <h3 style="margin-bottom: 1rem;">Testing Methodologies</h3>
                     <div class="skills">
-                        <span class="skill"><i class="fas fa-tasks"></i> Agile</span>
-                        <span class="skill"><i class="fas fa-sitemap"></i> BDD Framework</span>
-                        <span class="skill"><i class="fas fa-clipboard-list"></i> TestSuite</span>
-                        <span class="skill"><i class="fas fa-tachometer-alt"></i> JMeter</span>
-                        <span class="skill"><i class="fas fa-brain"></i> AI-Driven Testing</span>
+                        <span class="skill">Agile</span>
+                        <span class="skill">BDD Framework</span>
+                        <span class="skill">TestSuite</span>
+                        <span class="skill">JMeter</span>
+                        <span class="skill">AI-Driven Testing</span>
                     </div>
 
                     <h3 style="margin: 1.5rem 0 1rem 0;">Core Competencies</h3>
                     <div class="skills">
-                        <span class="skill"><i class="fas fa-check-double"></i> Software Quality Assurance</span>
-                        <span class="skill"><i class="fas fa-robot"></i> Test Automation Strategies</span>
-                        <span class="skill"><i class="fas fa-hand-paper"></i> Manual & API Testing</span>
-                        <span class="skill"><i class="fas fa-mobile"></i> Mobile Application Testing</span>
-                        <span class="skill"><i class="fas fa-laptop-code"></i> Web Application Testing</span>
-                        <span class="skill"><i class="fas fa-file-alt"></i> Test Case Development</span>
-                        <span class="skill"><i class="fas fa-bug"></i> Bug Tracking</span>
-                        <span class="skill"><i class="fas fa-sync-alt"></i> Cross-Platform Testing</span>
-                        <span class="skill"><i class="fas fa-tachometer-alt"></i> Performance Optimization</span>
-                        <span class="skill"><i class="fas fa-search"></i> Root Cause Analysis</span>
+                        <span class="skill">Software Quality Assurance</span>
+                        <span class="skill">Test Automation Strategies</span>
+                        <span class="skill">Manual & API Testing</span>
+                        <span class="skill">Mobile Application Testing</span>
+                        <span class="skill">Web Application Testing</span>
+                        <span class="skill">Test Case Development</span>
+                        <span class="skill">Bug Tracking</span>
+                        <span class="skill">Cross-Platform Testing</span>
+                        <span class="skill">Performance Optimization</span>
+                        <span class="skill">Root Cause Analysis</span>
                     </div>
                 </div>
             </div>
 
             <div style="margin-top: 3rem;">
                 <h3 style="text-align: center; margin-bottom: 1rem;">Certifications</h3>
-                <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
-                    <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                <div class="certifications" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                    <div class="certification-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center; min-width: 250px;">
                         <i class="fas fa-certificate" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem;"></i>
                         <h4>ISTQB® Certified (CTAL - TAE)</h4>
                         <p>CID ITB - CTAL-TAE - 686 India</p>
                     </div>
-                    <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center;">
+                    <div class="certification-card" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); text-align: center; min-width: 250px;">
                         <i class="fas fa-certificate" style="font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem;"></i>
                         <h4>ISTQB® Certified (CTFL)</h4>
                         <p>CID ITB - CTFL-132506 India</p>
@@ -828,27 +875,21 @@
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-linkedin-in"></i>
-                            <a href="https://linkedin.com/in/sudeep-yadav-b26574111" target="_blank" style="color: inherit; text-decoration: none;">
-                                <span>linkedin.com/in/sudeep-yadav-b26574111</span>
-                            </a>
+                            <span>linkedin.com/in/sudeep-yadav-b26574111</span>
                         </div>
                         <div class="contact-item">
                             <i class="fab fa-github"></i>
-                            <a href="https://github.com/sudeepyadav5" target="_blank" style="color: inherit; text-decoration: none;">
-                                <span>github.com/sudeepyadav5</span>
-                            </a>
+                            <span>github.com/sudeepyadav5</span>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form onsubmit="sendToWhatsApp(event)">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                        <input type="email" id="email" placeholder="Your Email" required>
-                        <input type="text" id="subject" placeholder="Subject">
-                        <textarea id="message" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn whatsapp-btn">
-                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
-                        </button>
+                    <form id="contactForm">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="text" id="subject" name="subject" placeholder="Subject">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send via WhatsApp</button>
                     </form>
                 </div>
             </div>
@@ -870,6 +911,9 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
             });
         });
 
@@ -883,9 +927,14 @@
             }
         });
 
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
         // WhatsApp form submission
-        function sendToWhatsApp(event) {
-            event.preventDefault();
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
 
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
@@ -900,10 +949,7 @@ Message: ${message}`;
 
             const encodedMessage = encodeURIComponent(whatsappMessage);
             window.open(`https://wa.me/918469645957?text=${encodedMessage}`, '_blank');
-
-            // Optional: Reset form after submission
-            event.target.reset();
-        }
+        });
     </script>
 </body>
 </html>
