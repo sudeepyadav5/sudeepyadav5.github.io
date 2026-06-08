@@ -3,1078 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="fav1.png" type="image/png">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
     <title>Sudeep Yadav | SDET Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #3498db;
-            --primary-dark: #2980b9;
-            --dark: #2c3e50;
-            --darker: #1a252f;
-            --light: #ecf0f1;
-            --lighter: #f8f9fa;
-            --danger: #e74c3c;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: var(--lighter);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        /* Canvas Background */
-        .canvas-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.1;
-        }
-
-        /* Header Section */
-        header {
-            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 10;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
-            border-color: white;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, white, #a8d8ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .tagline {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            color: white;
-            background: rgba(255,255,255,0.2);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            font-size: 1.2rem;
-            backdrop-filter: blur(5px);
-        }
-
-        .social-links a:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Scroll Down Indicator */
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 1.5rem;
-            animation: bounce 2s infinite;
-            cursor: pointer;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
-        }
-
-        /* Navigation */
-        nav {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-weight: 700;
-            color: var(--dark);
-            text-decoration: none;
-            font-size: 1.4rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            bottom: -5px;
-            left: 0;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        /* Mobile menu */
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.8rem;
-            color: var(--dark);
-            z-index: 1001;
-        }
-
-        /* Section Styles */
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            display: inline-block;
-            padding-bottom: 1rem;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .skill {
-            background-color: var(--light);
-            padding: 0.7rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            color: var(--dark);
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-
-        .skill:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .skill i {
-            margin-right: 8px;
-            width: 20px;
-            text-align: center;
-            color: var(--primary);
-        }
-
-        .skill:hover i {
-            color: white;
-        }
-
-        /* Experience Section */
-        .experience-section {
-            background-color: #f5f7fa;
-            position: relative;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: var(--primary);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            padding: 15px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.5s ease;
-        }
-
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background-color: white;
-            border: 4px solid var(--primary);
-            border-radius: 50%;
-            top: 20px;
-            z-index: 1;
-            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
-        }
-
-        .left {
-            left: 0;
-            animation-delay: 0.2s;
-        }
-
-        .right {
-            left: 50%;
-            animation-delay: 0.4s;
-        }
-
-        .left::after {
-            right: -12px;
-        }
-
-        .right::after {
-            left: -12px;
-        }
-
-        .timeline-content {
-            padding: 25px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .timeline-content h3 {
-            margin-bottom: 0.8rem;
-            color: var(--primary);
-            font-size: 1.3rem;
-        }
-
-        .timeline-date {
-            color: #777;
-            font-size: 0.95rem;
-            margin-bottom: 0.8rem;
-            font-weight: 500;
-        }
-
-        .timeline-content ul {
-            margin-left: 1.2rem;
-        }
-
-        .timeline-content li {
-            margin-bottom: 0.6rem;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .timeline-content li::before {
-            content: '▹';
-            position: absolute;
-            left: -1.2rem;
-            color: var(--primary);
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .project-img {
-            height: 220px;
-            background-color: #eee;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-img::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .project-card:hover .project-img::after {
-            opacity: 1;
-        }
-
-        .project-info {
-            padding: 1.8rem;
-        }
-
-        .project-info h3 {
-            margin-bottom: 0.8rem;
-            color: var(--dark);
-            font-size: 1.3rem;
-        }
-
-        .project-info p {
-            margin-bottom: 1.2rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background-color: var(--light);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--dark);
-            transition: var(--transition);
-        }
-
-        .tech-tag:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .project-link.primary {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .project-link.primary:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .project-link.secondary {
-            border: 1px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .project-link.secondary:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            background-color: #f5f7fa;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .skills-category h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .skills-category h3::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: var(--primary);
-            bottom: 0;
-            left: 0;
-        }
-
-        .skill-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .skill-bar {
-            height: 8px;
-            background-color: #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-            border-radius: 4px;
-            transition: width 1.5s ease;
-        }
-
-        /* Certifications */
-        .certifications {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-
-        .certification-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            width: 300px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .certification-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .certification-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-        }
-
-        .certification-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .certification-card h4 {
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .certification-card p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Contact Section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info {
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-info::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-            font-size: 1.5rem;
-        }
-
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            word-break: break-all;
-            transition: var(--transition);
-            padding: 0.8rem;
-            border-radius: 5px;
-        }
-
-        .contact-item:hover {
-            background-color: rgba(52, 152, 219, 0.1);
-        }
-
-        .contact-item i {
-            margin-right: 1.2rem;
-            color: var(--primary);
-            font-size: 1.3rem;
-            width: 25px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .contact-item span, .contact-item a {
-            color: #555;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-item a:hover {
-            color: var(--primary);
-        }
-
-        .contact-form {
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            width: 100%;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.3);
-        }
-
-        .btn:hover {
-            background: linear-gradient(135deg, var(--primary-dark), var(--dark));
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--darker);
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-            position: relative;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .footer-logo span {
-            color: var(--primary);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-social a {
-            color: white;
-            background: rgba(255,255,255,0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .footer-social a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--primary-dark);
-            transform: translateY(-5px);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .container {
-                max-width: 1000px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container,
-            .skills-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item::after {
-                left: 21px;
-            }
-
-            .left::after,
-            .right::after {
-                left: 21px;
-            }
-
-            .left,
-            .right {
-                left: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .tagline {
-                font-size: 1.2rem;
-            }
-
-            .profile-img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 80%;
-                max-width: 300px;
-                height: 100vh;
-                background-color: white;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 6rem 2rem 2rem;
-                transition: var(--transition);
-                z-index: 999;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                margin: 1rem 0;
-            }
-
-            .nav-links a {
-                font-size: 1.1rem;
-            }
-
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-
-            .certifications {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .certification-card {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 576px) {
-            header {
-                padding: 2rem 0;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title h2 {
-                font-size: 1.6rem;
-            }
-
-            .contact-container {
-                gap: 1.5rem;
-            }
-
-            .contact-info, .contact-form {
-                padding: 1.5rem;
-            }
-
-            section {
-                padding: 3rem 0;
-            }
-
-            .section-title {
-                margin-bottom: 2rem;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <canvas id="headerCanvas" class="canvas-bg"></canvas>
         <div class="header-content">
-            <img src="Sudeep_Passport_Photos.png" alt="Sudeep Yadav" class="profile-img">
+            <div class="hero-profile">
+                <img src="assets/images/profile/sudeep-passport-photo.png" alt="Sudeep Yadav" class="profile-img">
+                <span class="availability-badge"><i class="fas fa-circle"></i> Senior SDET Portfolio</span>
+            </div>
             <h1>Sudeep Yadav</h1>
-            <p class="tagline">Senior SDET | ISTQB® CTFL | ISTQB® CTAL-TAE | ETL & Data Platform Testing | AWS (Athena, EMR, Glue) | Airflow | NiFi | Spark | Python | Web & Mobile Automation | Appium | Selenium | Pytest | BDD | Generative AI | Agile | Jira.</p>
+            <p class="hero-role">Senior SDET | Data Quality & Automation Engineering</p>
+            <p class="tagline">
+                ISTQB® CTFL & CTAL-TAE certified quality engineer with 6+ years of experience in ETL testing,
+                data platform validation, Python automation, API testing, and web/mobile quality across high-impact
+                product ecosystems.
+            </p>
+            <div class="hero-highlights">
+                <span><strong>6+</strong> Years QA/SDET</span>
+                <span><strong>4+</strong> Years Automation</span>
+                <span><strong>2,000+</strong> Test Cases</span>
+                <span><strong>30+</strong> Client Apps</span>
+            </div>
+            <div class="hero-actions">
+                <a href="#projects" class="hero-btn primary"><i class="fas fa-briefcase"></i> View Projects</a>
+                <a href="assets/documents/sudeep-sdet-cv.pdf" class="hero-btn" download><i class="fas fa-file-download"></i> Download CV</a>
+                <a href="#contact" class="hero-btn outline"><i class="fas fa-paper-plane"></i> Contact Me</a>
+            </div>
             <div class="social-links">
                 <a href="https://linkedin.com/in/sudeep-yadav-b26574111" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/sudeepyadav5" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -1099,6 +60,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="assets/documents/sudeep-sdet-cv.pdf" download class="nav-resume">Resume</a></li>
             </ul>
         </div>
     </nav>
@@ -1112,49 +74,119 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Results-oriented Senior SDET with 6+ years of experience across Automation, Manual, API, and ETL testing. Possess 4+ years of hands-on automation experience and strong expertise in building and maintaining scalable automation frameworks, supporting 2,000+ test cases and delivering quality assurance for 30+ client applications across high-traffic domains.</p>
-                    <p>ISTQB® CTFL and CTAL-TAE certified, with proven ability to define automation strategies, improve test coverage, and ensure data quality and reliability across complex systems. Experienced in ETL and data platform testing using AWS services (Athena, EMR, Glue), Airflow, and Apache NiFi for validating data ingestion and transformation workflows.</p>
-                    <p>Technically proficient in Python, Selenium, Appium, Pytest, BDD, and API testing, with growing adoption of Generative AI tools to enhance test design, debugging, and productivity. Adept at working in Agile environments, collaborating closely with cross-functional teams, and using Jira to drive efficient defect and test management.</p>
-                    
-                    <h3 style="margin-top: 2rem;">Technical Skills</h3>
+                    <span class="about-kicker">Senior SDET | Data Quality | Automation Engineering</span>
+                    <h3>Quality Engineer focused on scalable automation, reliable data platforms, and AI evaluation workflows.</h3>
+                    <p>
+                        Results-oriented Senior SDET with 6+ years of experience across automation, manual testing,
+                        API testing, ETL validation, and data platform quality engineering. I specialize in building
+                        practical test strategies, improving release confidence, and validating complex systems where
+                        data accuracy and user experience both matter.
+                    </p>
+                    <p>
+                        ISTQB® CTFL and CTAL-TAE certified, with hands-on expertise in Python, Selenium, Appium,
+                        Pytest, Robot Framework, API automation, SQL validation, AWS data services, Apache NiFi,
+                        Kafka, Airflow, Spark, and custom ingestion automation frameworks.
+                    </p>
+                    <p>
+                        Currently focused on broadband data flow transformation testing, ETL/data quality validation,
+                        LLM-as-a-Judge specifications, Langfuse evaluation workflows, and using Generative AI tools
+                        to improve test design, debugging, productivity, and continuous learning.
+                    </p>
+
+                    <div class="about-metrics">
+                        <div class="about-metric">
+                            <strong>6+</strong>
+                            <span>Years Experience</span>
+                        </div>
+                        <div class="about-metric">
+                            <strong>4+</strong>
+                            <span>Years Automation</span>
+                        </div>
+                        <div class="about-metric">
+                            <strong>2,000+</strong>
+                            <span>Test Cases</span>
+                        </div>
+                        <div class="about-metric">
+                            <strong>30+</strong>
+                            <span>Client Apps</span>
+                        </div>
+                    </div>
+
+                    <h3 class="about-subtitle">Core Expertise</h3>
                     <div class="skills">
                         <span class="skill"><i class="fas fa-database"></i> ETL Testing</span>
+                        <span class="skill"><i class="fas fa-check-double"></i> Data Quality</span>
                         <span class="skill"><i class="fab fa-aws"></i> AWS (Athena, EMR, Glue)</span>
+                        <span class="skill"><i class="fas fa-stream"></i> Kafka</span>
                         <span class="skill"><i class="fas fa-project-diagram"></i> Airflow</span>
                         <span class="skill"><i class="fas fa-random"></i> NiFi</span>
                         <span class="skill"><i class="fab fa-python"></i> Python</span>
                         <span class="skill"><i class="fas fa-robot"></i> Selenium</span>
                         <span class="skill"><i class="fas fa-mobile-alt"></i> Appium</span>
+                        <span class="skill"><i class="fas fa-cogs"></i> Robot Framework</span>
                         <span class="skill"><i class="fas fa-code"></i> API Testing</span>
                         <span class="skill"><i class="fas fa-flask"></i> Pytest</span>
-                        <span class="skill"><i class="fas fa-database"></i> Data-Driven</span>
-                        <span class="skill"><i class="fas fa-check-circle"></i> UnitTest</span>
+                        <span class="skill"><i class="fas fa-brain"></i> LLM Evaluation</span>
+                        <span class="skill"><i class="fas fa-chart-line"></i> Langfuse</span>
                         <span class="skill"><i class="fab fa-jenkins"></i> Jenkins</span>
                         <span class="skill"><i class="fab fa-github"></i> GitHub</span>
                     </div>
                 </div>
                 <div class="about-details">
-                    <h3>Personal Details</h3>
-                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Gurugram, Haryana, India</div>
-                    <div class="contact-item"><i class="fas fa-birthday-cake"></i> 29th October 1995 </div>
-                    <div class="contact-item"><i class="fas fa-language"></i> English, Hindi & Gujarati</div>
+                    <div class="about-profile-card">
+                        <span class="about-kicker">Profile Snapshot</span>
+                        <h3>Professional Details</h3>
+                        <div class="about-info-list">
+                            <div class="about-info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span>Location</span>
+                                    <strong>Gurugram, Haryana, India</strong>
+                                </div>
+                            </div>
+                            <div class="about-info-item">
+                                <i class="fas fa-language"></i>
+                                <div>
+                                    <span>Languages</span>
+                                    <strong>English, Hindi & Gujarati</strong>
+                                </div>
+                            </div>
+                            <div class="about-info-item">
+                                <i class="fas fa-certificate"></i>
+                                <div>
+                                    <span>Certifications</span>
+                                    <strong>ISTQB® CTFL, ISTQB® CTAL-TAE</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h3 style="margin-top: 2rem;">Education</h3>
-                    <div class="education-item">
-                        <h4>Master of Computer Applications (MCA)</h4>
-                        <p>Sarvajanik College of Engineering and Technology | Gujarat Technological University, Surat (2020)</p>
-                    </div>
-                    <div class="education-item">
-                        <h4>Bachelor of Computer Applications (BCA)</h4>
-                        <p>Vimal Tormal Poddar BCA & BCOM College | Veer Narmad South Gujarat University, Surat (2017)</p>
-                    </div>
-                    <div class="education-item">
-                        <h4>Higher Secondary (12th) - Commerce Stream </h4>
-                        <p>Smt S V Rao New Model Higher Secondary School | Gujarat Secondary & Higher Secondary Education Board (GSEB) (2014)</p>
-                    </div>
-                    <div class="education-item">
-                        <h4> Secondary School (10th) </h4>
-                        <p>Decent English School <br> Gujarat Secondary Education Board (GSEB) <strong>(2012)</strong> </p>
+                    <div class="about-profile-card education-card">
+                        <span class="about-kicker">Academic Background</span>
+                        <h3>Education</h3>
+                        <div class="education-timeline">
+                            <div class="education-item">
+                                <span class="education-year">2020</span>
+                                <div>
+                                    <h4>Master of Computer Applications (MCA)</h4>
+                                    <p>Sarvajanik College of Engineering and Technology, Gujarat Technological University, Surat</p>
+                                </div>
+                            </div>
+                            <div class="education-item">
+                                <span class="education-year">2017</span>
+                                <div>
+                                    <h4>Bachelor of Computer Applications (BCA)</h4>
+                                    <p>Vimal Tormal Poddar BCA & BCOM College, Veer Narmad South Gujarat University, Surat</p>
+                                </div>
+                            </div>
+                            <div class="education-item">
+                                <span class="education-year">2014</span>
+                                <div>
+                                    <h4>Higher Secondary - Commerce</h4>
+                                    <p>Smt S V Rao New Model Higher Secondary School, GSEB</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1168,48 +200,128 @@
             <div class="section-title">
                 <h2>Professional Experience</h2>
             </div>
+            <p class="experience-intro">
+                6+ years of quality engineering experience across data platforms, ETL validation, automation
+                frameworks, API testing, and web/mobile product quality, with growing ownership in AI-assisted
+                evaluation workflows.
+            </p>
+            <div class="experience-highlights">
+                <div class="experience-highlight-card">
+                    <i class="fas fa-briefcase"></i>
+                    <div>
+                        <strong>6+ Years</strong>
+                        <span>QA & SDET Experience</span>
+                    </div>
+                </div>
+                <div class="experience-highlight-card">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <strong>4+ Years</strong>
+                        <span>Automation Engineering</span>
+                    </div>
+                </div>
+                <div class="experience-highlight-card">
+                    <i class="fas fa-vial"></i>
+                    <div>
+                        <strong>2,000+</strong>
+                        <span>Test Cases Supported</span>
+                    </div>
+                </div>
+                <div class="experience-highlight-card">
+                    <i class="fas fa-layer-group"></i>
+                    <div>
+                        <strong>30+</strong>
+                        <span>Client Applications</span>
+                    </div>
+                </div>
+            </div>
             <div class="timeline">
 
                 <div class="timeline-item right">
                     <div class="timeline-content">
+                        <span class="role-badge current">Current Role</span>
                         <h3>Senior Software Development Engineer in Test</h3>
-                        <div class="timeline-date">Oct 2025  – Present | Deutsche Telekom Digital Labs </div>
+                        <div class="timeline-date">
+                            <span><i class="fas fa-building"></i> Deutsche Telekom Digital Labs</span>
+                            <span><i class="fas fa-calendar-alt"></i> Oct 2025 - Present</span>
+                        </div>
+                        <p class="role-summary">
+                            Driving quality engineering for broadband data platforms with focus on ETL validation,
+                            data transformation assurance, ingestion automation, and AI evaluation quality.
+                        </p>
                         <ul>
-                            <li>Senior SDET with hands-on experience in ETL and data platform testing, ensuring data quality, accuracy, and reliability across large-scale data pipelines. Currently working with a custom ingestion automation framework for validating end-to-end data flows, including data count reconciliation, schema validation, nullability checks.</li>
-                            <li>Experienced in testing cloud-based data ecosystems using AWS services such as Athena, EMR, and Glue, along with Apache NiFi and Airflow for orchestrating and validating data ingestion and transformation workflows. Strong understanding of data warehousing concepts, including Bronze, Silver, and Gold data layers, and testing ETL aggregation jobs across these layers.</li>
-                            <li>Proficient in validating data stored in Apache Parquet, Delta Lake, and Apache Iceberg, with practical experience in Spark-based data processing. Well-versed in data modeling techniques such as Star and Snowflake schemas, and in analyzing differences between Data Lakes and Data Warehouses.</li>
-                            <li>Regularly work with SQL-based validations, OpenSearch, and JupyterLab for data analysis, troubleshooting, and exploratory testing. Passionate about building scalable data quality frameworks and enabling reliable, production-grade data pipelines.</li>
-                            <li>In day-to-day work, actively leverage Generative AI as a productivity and problem-solving assistant, using AI tools such as ChatGPT, DeepSeek, Cursor, and Gemini to support test design, automation enhancement, data analysis, debugging, and continuous learning.</li>
+                            <li>Validate end-to-end broadband data flows across NiFi, Kafka, AWS data services, and downstream analytical layers using SQL-based reconciliation and transformation checks.</li>
+                            <li>Work with custom ingestion automation frameworks to verify data counts, schema consistency, nullability rules, file formats, and data quality across Bronze, Silver, and Gold layers.</li>
+                            <li>Test cloud data ecosystem behavior across AWS Athena, EMR, Glue, Spark, Parquet, Delta Lake, Iceberg, OpenSearch, and JupyterLab-based analysis workflows.</li>
+                            <li>Manage LLM-as-a-Judge specifications and Langfuse evaluation workflows to define measurable quality signals for GenAI-assisted use cases.</li>
+                            <li>Use Generative AI tools such as ChatGPT, DeepSeek, Cursor, and Gemini to accelerate test design, debugging, data analysis, automation improvement, and continuous learning.</li>
                         </ul>
+                        <div class="role-tags">
+                            <span>ETL Testing</span>
+                            <span>Data Quality</span>
+                            <span>NiFi</span>
+                            <span>Kafka</span>
+                            <span>AWS</span>
+                            <span>LLM Evaluation</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="timeline-item left">
                     <div class="timeline-content">
+                        <span class="role-badge">Automation Ownership</span>
                         <h3>Software Development Engineer in Test</h3>
-                        <div class="timeline-date">Apr 2021  – Sep 2025 | Appscrip, Bengaluru</div>
+                        <div class="timeline-date">
+                            <span><i class="fas fa-building"></i> Appscrip, Bengaluru</span>
+                            <span><i class="fas fa-calendar-alt"></i> Apr 2021 - Sep 2025</span>
+                        </div>
+                        <p class="role-summary">
+                            Owned product quality across mobility, delivery, partner, and service applications,
+                            combining manual validation with scalable web, mobile, and API automation.
+                        </p>
                         <ul>
-                            <li>Leading testing efforts for application, web, and API testing across iOS, Android, and web environments</li>
-                            <li>Automating web and mobile applications using Python for API automation</li>
-                            <li>Managing daily testing for Karry (Uber-like ride service application)</li>
-                            <li>Leading and mentoring QA interns and developers in an Agile environment</li>
-                            <li>Enhancing automation practices and testing strategies</li>
+                            <li>Led QA efforts for iOS, Android, web, and API platforms across ride-hailing, delivery, towing, and partner operation products.</li>
+                            <li>Built and maintained Python-based automation coverage using Pytest, Selenium, Appium, API automation, and data-driven testing practices.</li>
+                            <li>Managed daily testing and release validation for Karry and related high-traffic client applications, improving regression confidence and delivery quality.</li>
+                            <li>Collaborated with developers, product teams, and QA interns in Agile ceremonies to refine test strategy, defect quality, and release readiness.</li>
+                            <li>Mentored interns and junior team members while improving reusable test practices, automation standards, and defect reporting discipline.</li>
                         </ul>
+                        <div class="role-tags">
+                            <span>Python</span>
+                            <span>Selenium</span>
+                            <span>Appium</span>
+                            <span>Pytest</span>
+                            <span>API Testing</span>
+                            <span>Agile QA</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="timeline-item right">
                     <div class="timeline-content">
+                        <span class="role-badge">Quality Foundation</span>
                         <h3>Quality Assurance Engineer</h3>
-                        <div class="timeline-date">Nov 2019 – Apr 2021 | Krishna Softweb, Surat</div>
+                        <div class="timeline-date">
+                            <span><i class="fas fa-building"></i> Krishna Softweb, Surat</span>
+                            <span><i class="fas fa-calendar-alt"></i> Nov 2019 - Apr 2021</span>
+                        </div>
+                        <p class="role-summary">
+                            Built strong QA fundamentals through client application testing, structured defect
+                            reporting, API validation, and close collaboration with delivery teams.
+                        </p>
                         <ul>
-                            <li>Prepared detailed bug reports and facilitated defect resolution</li>
-                            <li>Tested and coordinated testing for client applications and websites</li>
-                            <li>Collaborated with cross-functional teams to maintain quality</li>
-                            <li>Conducted White Box, Black Box, and API Testing</li>
-                            <li>Analyzed system behavior through White Box Testing</li>
-                            <li>Prepared and maintained detailed bug reports</li>
+                            <li>Tested client websites and applications across functional, integration, regression, black-box, white-box, and API testing areas.</li>
+                            <li>Prepared clear, reproducible defect reports with evidence, impact details, and follow-up coordination through resolution.</li>
+                            <li>Collaborated with developers and stakeholders to verify fixes, improve acceptance quality, and reduce repeated production issues.</li>
+                            <li>Analyzed system behavior and application workflows to identify edge cases, data issues, and usability gaps before release.</li>
                         </ul>
+                        <div class="role-tags">
+                            <span>Manual Testing</span>
+                            <span>API Testing</span>
+                            <span>Regression</span>
+                            <span>Bug Reporting</span>
+                            <span>Client Delivery</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1222,147 +334,186 @@
         <canvas id="projectsCanvas" class="canvas-bg"></canvas>
         <div class="container">
             <div class="section-title">
-                <h2>Projects Managed</h2>
+                <h2>Project Experience</h2>
+            </div>
+            <p class="projects-intro">
+                End-to-end quality ownership across data platforms, broadband systems, ride-hailing, delivery,
+                towing, web, mobile, and API ecosystems.
+            </p>
+
+            <div class="current-project-card">
+                <div class="current-project-header">
+                    <span class="project-status active">Current Engagement</span>
+                    <span class="project-domain"><i class="fas fa-network-wired"></i> Broadband Data Platform</span>
+                </div>
+                <div class="current-project-content">
+                    <div class="current-project-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <div>
+                        <h3>Broadband Data Flow & AI Evaluation Quality Engineering</h3>
+                        <p>
+                            Currently validating broadband data flow transformation across ingestion, orchestration,
+                            streaming, and AWS data layers. The work includes SQL-based reconciliation, transformation
+                            checks, schema and nullability validation, and data quality verification across NiFi,
+                            Kafka, and AWS-powered pipelines.
+                        </p>
+                        <p>
+                            Also contributing to Generative AI quality evaluation by managing LLM-as-a-Judge
+                            specifications, Langfuse evaluations, prompt/output review criteria, and measurable
+                            quality signals for AI-assisted workflows.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-achievements">
+                    <span><i class="fas fa-check-circle"></i> Data transformation validation</span>
+                    <span><i class="fas fa-check-circle"></i> SQL reconciliation checks</span>
+                    <span><i class="fas fa-check-circle"></i> LLM-as-a-Judge specifications</span>
+                    <span><i class="fas fa-check-circle"></i> Langfuse evaluation workflows</span>
+                </div>
+                <div class="project-tech featured">
+                    <span class="tech-tag">NiFi</span>
+                    <span class="tech-tag">Kafka</span>
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Data Quality</span>
+                    <span class="tech-tag">ETL Testing</span>
+                    <span class="tech-tag">LLM as a Judge</span>
+                    <span class="tech-tag">Langfuse</span>
+                </div>
             </div>
 
-            <div class="projects-grid">
+            <div class="completed-projects-panel">
+                <div class="project-section-heading">
+                    <span>Completed Projects</span>
+                    <h3>Quality Delivered Across Product Domains</h3>
+                    <p>Completed QA ownership across mobility, logistics, delivery, and on-demand service platforms.</p>
+                </div>
+
+                <div class="projects-grid">
 
                 <div class="project-card">
-                    <div class="project-img" style="background-image: url('snapelogo.jpeg');" alt="SnapE Cab Project"></div>
+                    <div class="project-img" style="background-image: url('assets/images/projects/snape-logo.jpeg');" role="img" aria-label="SnapE Cab Project"></div>
                     <div class="project-info">
+                        <span class="project-status">Ride-Hailing Platform</span>
                         <h3>SnapE Cab - Ride Service</h3>
-                        <p>Tested and validated key features including customer registration, ride booking functionality (instant, scheduled, and rental), and multi-stop booking process.</p>
+                        <p>Validated customer registration, instant rides, scheduled rides, rental bookings, multi-stop trips, and core customer journey reliability across mobile and web workflows.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Ride Booking</span>
+                            <span class="tech-tag">Android & iOS</span>
+                            <span class="tech-tag">Appium</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">API Testing</span>
+                            <span class="tech-tag">Agile</span>
+                        </div>
+                        <div class="project-summary">
+                            <span><i class="fas fa-user-check"></i> Customer onboarding</span>
+                            <span><i class="fas fa-route"></i> Multi-stop booking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('assets/images/projects/karry-logo.png');" role="img" aria-label="Karry Project"></div>
+                    <div class="project-info">
+                        <span class="project-status">Delivery & Logistics</span>
+                        <h3>Karry - Delivery Platform</h3>
+                        <p>Tested real-time order assignment, ASAP and shift-based deliveries, driver preference logic, dispatch workflows, and operational stability across delivery journeys.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Android & iOS Testing</span>
+                            <span class="tech-tag">Dispatch Flow</span>
                             <span class="tech-tag">Appium</span>
-                            <span class="tech-tag">Mobile Automation</span>
-                            <span class="tech-tag">Selenium</span>
-                            <span class="tech-tag">Web Automation</span>
-                            <span class="tech-tag">pytest</span>
-                            <span class="tech-tag">Api Testing</span>
+                            <span class="tech-tag">Pytest</span>
+                            <span class="tech-tag">API Testing</span>
                             <span class="tech-tag">Agile</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
-                            <a href="#" class="project-link secondary">Case Study</a>
+                        <div class="project-summary">
+                            <span><i class="fas fa-truck"></i> Delivery workflows</span>
+                            <span><i class="fas fa-clock"></i> Shift-based assignment</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-img" style="background-image: url('karrylogo.png');" alt="Karry Project"></div>
+                    <div class="project-img" style="background-image: url('assets/images/projects/roadyo-logo.png');" role="img" aria-label="Roadyo Project"></div>
                     <div class="project-info">
-                        <h3>Karry</h3>
-                        <p>Tested core workflows including Rides, ASAP, and Shift-based deliveries, ensuring real-time order assignment based on driver preferences.</p>
+                        <span class="project-status">Mobility Platform</span>
+                        <h3>Roadyo - Customer Application</h3>
+                        <p>Owned QA validation for customer-facing ride and service booking flows, including request creation, live updates, API behavior, and regression coverage.</p>
                         <div class="project-tech">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Android & iOS Testing</span>
+                            <span class="tech-tag">Android & iOS</span>
                             <span class="tech-tag">Appium</span>
-                            <span class="tech-tag">Mobile Automation</span>
                             <span class="tech-tag">Selenium</span>
-                            <span class="tech-tag">Web Automation</span>
-                            <span class="tech-tag">pytest</span>
-                            <span class="tech-tag">Api Testing</span>
-                            <span class="tech-tag">Agile</span>
+                            <span class="tech-tag">API Testing</span>
+                            <span class="tech-tag">Regression</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
-                            <a href="#" class="project-link secondary">Case Study</a>
+                        <div class="project-summary">
+                            <span><i class="fas fa-mobile-alt"></i> Customer app QA</span>
+                            <span><i class="fas fa-sync-alt"></i> Regression testing</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-img" style="background-image: url('roadyologo.png');" alt="Roadyo Project"></div>
+                    <div class="project-img" style="background-image: url('assets/images/projects/roadyo-driver-logo.png');" role="img" aria-label="Roadyo Partner Project"></div>
                     <div class="project-info">
-                        <h3>Roadyo</h3>
-                        <p>Tested core workflows including Rides, ASAP, and Shift-based deliveries, ensuring real-time order assignment based on driver preferences.</p>
-
-                                                <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Android & iOS Testing</span>
-                            <span class="tech-tag">Appium</span>
-                            <span class="tech-tag">Mobile Automation</span>
-                            <span class="tech-tag">Selenium</span>
-                            <span class="tech-tag">Web Automation</span>
-                            <span class="tech-tag">pytest</span>
-                            <span class="tech-tag">Api Testing</span>
-                            <span class="tech-tag">Agile</span>
-                        </div>
-
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
-                            <a href="#" class="project-link secondary">Case Study</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-img" style="background-image: url('roadyodriverlogo.png');" alt="Roadyo Partner Project"></div>
-                    <div class="project-info">
-                        <h3>Roadyo Partner</h3>
-                        <p>Tested core workflows including Rides, ASAP, and Shift-based deliveries, ensuring real-time order assignment based on driver preferences.</p>
+                        <span class="project-status">Partner Operations</span>
+                        <h3>Roadyo Partner - Driver Application</h3>
+                        <p>Validated driver-side workflows including availability, ride acceptance, job lifecycle, status transitions, and partner operational scenarios.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Android & iOS Testing</span>
+                            <span class="tech-tag">Driver App</span>
                             <span class="tech-tag">Appium</span>
                             <span class="tech-tag">Mobile Automation</span>
-                            <span class="tech-tag">Selenium</span>
-                            <span class="tech-tag">Web Automation</span>
-                            <span class="tech-tag">pytest</span>
-                            <span class="tech-tag">Api Testing</span>
+                            <span class="tech-tag">API Testing</span>
                             <span class="tech-tag">Agile</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
-                            <a href="#" class="project-link secondary">Case Study</a>
+                        <div class="project-summary">
+                            <span><i class="fas fa-id-card"></i> Partner flows</span>
+                            <span><i class="fas fa-tasks"></i> Job lifecycle QA</span>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img" style="background-image: url('meatylogo.png');" alt="Meaty Project"></div>
+                    <div class="project-img" style="background-image: url('assets/images/projects/meaty-logo.png');" role="img" aria-label="Meaty Project"></div>
                     <div class="project-info">
+                        <span class="project-status">Food Delivery</span>
                         <h3>Meaty - Delivery Service</h3>
-                        <p>Tested end-to-end delivery flow on iOS and Android platforms, ensuring smooth order placement and timely doorstep delivery.</p>
+                        <p>Validated end-to-end food delivery flows from order placement to doorstep delivery, focusing on mobile usability, order state changes, and payment reliability.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Android & iOS Testing</span>
+                            <span class="tech-tag">Order Flow</span>
+                            <span class="tech-tag">Android & iOS</span>
                             <span class="tech-tag">Appium</span>
-                            <span class="tech-tag">Mobile Automation</span>
-                            <span class="tech-tag">Selenium</span>
-                            <span class="tech-tag">Web Automation</span>
-                            <span class="tech-tag">pytest</span>
-                            <span class="tech-tag">Api Testing</span>
+                            <span class="tech-tag">Payment QA</span>
+                            <span class="tech-tag">API Testing</span>
                             <span class="tech-tag">Agile</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
-                            <a href="#" class="project-link secondary">Case Study</a>
+                        <div class="project-summary">
+                            <span><i class="fas fa-shopping-bag"></i> Order journey</span>
+                            <span><i class="fas fa-credit-card"></i> Payment validation</span>
                         </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <div class="project-img" style="background-image: url('towmelogo.png');" alt="Towme Project"></div>
+                    <div class="project-img" style="background-image: url('assets/images/projects/towme-logo.png');" role="img" aria-label="Towme Project"></div>
                     <div class="project-info">
+                        <span class="project-status">On-Demand Assistance</span>
                         <h3>Towme - Towing Service</h3>
-                        <p>Tested key features including automated dispatch, real-time tracking, and payment management for on-demand towing assistance.</p>
+                        <p>Tested automated dispatch, real-time tracking, service provider assignment, and payment management for on-demand towing assistance workflows.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Android & iOS Testing</span>
-                            <span class="tech-tag">Appium</span>
-                            <span class="tech-tag">Mobile Automation</span>
-                            <span class="tech-tag">Selenium</span>
-                            <span class="tech-tag">Web Automation</span>
-                            <span class="tech-tag">pytest</span>
-                            <span class="tech-tag">Api Testing</span>
+                            <span class="tech-tag">Dispatch</span>
+                            <span class="tech-tag">Real-Time Tracking</span>
+                            <span class="tech-tag">Mobile Testing</span>
+                            <span class="tech-tag">API Testing</span>
+                            <span class="tech-tag">Payments</span>
                             <span class="tech-tag">Agile</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link primary">View Details</a>
-                            <a href="#" class="project-link secondary">Case Study</a>
+                        <div class="project-summary">
+                            <span><i class="fas fa-map-marked-alt"></i> Live tracking</span>
+                            <span><i class="fas fa-tools"></i> Service dispatch</span>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
 
@@ -1376,12 +527,34 @@
             <div class="section-title">
                 <h2>Technical Skills</h2>
             </div>
+            <p class="skills-intro">
+                Senior SDET skill set focused on scalable automation frameworks, ETL/data quality validation,
+                API and mobile testing, and cloud data platform quality engineering.
+            </p>
+            <div class="skill-highlights">
+                <div class="skill-highlight-card">
+                    <i class="fas fa-database"></i>
+                    <span>ETL & Data Quality</span>
+                </div>
+                <div class="skill-highlight-card">
+                    <i class="fas fa-robot"></i>
+                    <span>Automation Frameworks</span>
+                </div>
+                <div class="skill-highlight-card">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS Data Services</span>
+                </div>
+                <div class="skill-highlight-card">
+                    <i class="fas fa-vial"></i>
+                    <span>API, Web & Mobile Testing</span>
+                </div>
+            </div>
             <div class="skills-container">
                 <div class="skills-category">
-                    <h3>Programming & Automation</h3>
+                    <h3><i class="fas fa-database"></i> ETL & Data Quality</h3>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>Python</span>
+                            <span>ETL Testing</span>
                             <span>95%</span>
                         </div>
                         <div class="skill-bar">
@@ -1390,7 +563,16 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>Selenium</span>
+                            <span>Data Count Reconciliation</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Schema & Nullability Validation</span>
                             <span>90%</span>
                         </div>
                         <div class="skill-bar">
@@ -1399,7 +581,67 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>Appium</span>
+                            <span>Parquet, Delta Lake & Iceberg</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-cogs"></i> Automation Frameworks</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python Automation</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Pytest Framework</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Robot Framework</span>
+                            <span>86%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 86%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Custom Ingestion Framework</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-laptop-code"></i> Web, Mobile & API Testing</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Selenium Web Automation</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Appium Mobile Automation</span>
                             <span>85%</span>
                         </div>
                         <div class="skill-bar">
@@ -1415,30 +657,39 @@
                             <div class="skill-progress" style="width: 88%"></div>
                         </div>
                     </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>BDD & Test Design</span>
+                            <span>84%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 84%"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="skills-category">
-                    <h3>Testing Tools & Platforms</h3>
+                    <h3><i class="fas fa-cloud"></i> Cloud, Pipelines & Tools</h3>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>Pytest Framework</span>
-                            <span>92%</span>
+                            <span>AWS Athena, EMR & Glue</span>
+                            <span>86%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 92%"></div>
+                            <div class="skill-progress" style="width: 86%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>Jenkins</span>
-                            <span>80%</span>
+                            <span>Airflow, NiFi & Spark</span>
+                            <span>84%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-progress" style="width: 84%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>GitHub Actions</span>
+                            <span>Jenkins & GitHub Actions</span>
                             <span>85%</span>
                         </div>
                         <div class="skill-bar">
@@ -1447,11 +698,11 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>BrowserStack</span>
-                            <span>78%</span>
+                            <span>BrowserStack & Jira</span>
+                            <span>82%</span>
                         </div>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 78%"></div>
+                            <div class="skill-progress" style="width: 82%"></div>
                         </div>
                     </div>
                 </div>
@@ -1460,17 +711,27 @@
             <div class="certifications">
                 <div class="certification-card">
                     <div class="certification-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-award"></i>
                     </div>
-                    <h4>ISTQB® Certified (CTAL - TAE)</h4>
-                    <p>CID ITB - CTAL-TAE - 686 India</p>
+                    <span class="certification-level">Advanced Level</span>
+                    <h4>ISTQB® CTAL-TAE</h4>
+                    <p>Certified Tester Advanced Level - Test Automation Engineering</p>
+                    <div class="certification-meta">
+                        <span><i class="fas fa-id-badge"></i> CID: ITB-CTAL-TAE-686</span>
+                        <span><i class="fas fa-map-marker-alt"></i> India</span>
+                    </div>
                 </div>
                 <div class="certification-card">
                     <div class="certification-icon">
                         <i class="fas fa-certificate"></i>
                     </div>
-                    <h4>ISTQB® Certified (CTFL)</h4>
-                    <p>CID ITB - CTFL-132506 India</p>
+                    <span class="certification-level">Foundation Level</span>
+                    <h4>ISTQB® CTFL</h4>
+                    <p>Certified Tester Foundation Level with strong testing fundamentals.</p>
+                    <div class="certification-meta">
+                        <span><i class="fas fa-id-badge"></i> CID: ITB-CTFL-132506</span>
+                        <span><i class="fas fa-map-marker-alt"></i> India</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1485,47 +746,77 @@
             </div>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
+                    <span class="contact-kicker">Professional Contact</span>
+                    <h3>Let’s Build Quality Together</h3>
+                    <p class="contact-summary">
+                        Open to conversations around SDET roles, automation strategy, ETL/data platform testing,
+                        and quality engineering opportunities across web, mobile, API, and cloud data systems.
+                    </p>
                     <div class="contact-details">
-                        <div class="contact-item">
+                        <div class="contact-item contact-card">
                             <i class="fab fa-whatsapp"></i>
-                            <a href="https://wa.me/918469645957" target="_blank">Chat on WhatsApp</a>
+                            <div>
+                                <span class="contact-label">WhatsApp</span>
+                                <a href="https://wa.me/918469645957" target="_blank">Chat directly on WhatsApp</a>
+                            </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item contact-card">
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:sudeepyadav5@gmail.com">sudeepyadav5@gmail.com</a>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:sudeepyadav5@gmail.com">sudeepyadav5@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item contact-card">
                             <i class="fas fa-phone"></i>
-                            <span>
-                                <a href="tel:+918460905553">+91 8460905553</a> / 
-                                <a href="tel:+918469645957">+91 8469645957</a>
-                            </span>
+                            <div>
+                                <span class="contact-label">Phone</span>
+                                <span>
+                                    <a href="tel:+918460905553">+91 8460905553</a> /
+                                    <a href="tel:+918469645957">+91 8469645957</a>
+                                </span>
+                            </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item contact-card">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Surat, Gujarat, India</span>
+                            <div>
+                                <span class="contact-label">Location</span>
+                                <span>Gurugram, Haryana, India</span>
+                            </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item contact-card">
                             <i class="fab fa-linkedin-in"></i>
-                            <a href="https://www.linkedin.com/in/sudeep-yadav-b26574111" target="_blank">linkedin.com/in/sudeep-yadav-b26574111</a>
+                            <div>
+                                <span class="contact-label">LinkedIn</span>
+                                <a href="https://www.linkedin.com/in/sudeep-yadav-b26574111" target="_blank">linkedin.com/in/sudeep-yadav-b26574111</a>
+                            </div>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item contact-card">
                             <i class="fab fa-github"></i>
-                            <a href="https://github.com/sudeepyadav5" target="_blank">github.com/sudeepyadav5</a>
+                            <div>
+                                <span class="contact-label">GitHub</span>
+                                <a href="https://github.com/sudeepyadav5" target="_blank">github.com/sudeepyadav5</a>
+                            </div>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-file-download"></i>
-                            <a href="Sudeep_SDET_CV_6Yrs (3).pdf" download>Download CV</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-file"></i>
-                            <a href="CoverSudeep_SDET_6Yrs.pdf" download>Download Cover Letter</a>
-                        </div>
+                    </div>
+                    <div class="contact-focus">
+                        <span><i class="fas fa-check-circle"></i> Senior SDET</span>
+                        <span><i class="fas fa-check-circle"></i> Automation Frameworks</span>
+                        <span><i class="fas fa-check-circle"></i> ETL & Data Quality</span>
+                    </div>
+                    <div class="contact-actions">
+                        <a href="assets/documents/sudeep-sdet-cv.pdf" class="contact-action primary" download>
+                            <i class="fas fa-file-download"></i> Download CV
+                        </a>
+                        <a href="assets/documents/sudeep-cover-letter.pdf" class="contact-action" download>
+                            <i class="fas fa-file-alt"></i> Cover Letter
+                        </a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <h3>Send a Message</h3>
+                    <p class="form-intro">Share your requirement, role, or collaboration details and I will respond as soon as possible.</p>
+                    <form id="contactForm" action="https://script.google.com/macros/s/AKfycbzGPfC6zq2aH7WKulmXeXlwjue4Oe1T-FAjlvv2y2iGisF4lTci97CMBqhWmCTJusP2bw/exec" method="POST">
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" class="form-control" required>
@@ -1542,7 +833,18 @@
                             <label for="message">Your Message</label>
                             <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <div class="form-group hidden-field" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        <label class="captcha-box" for="humanCheck">
+                            <input type="checkbox" id="humanCheck" name="humanCheck" value="verified" required>
+                            <span class="captcha-checkmark"><i class="fas fa-check"></i></span>
+                            <span class="captcha-text">I am not a robot</span>
+                            <span class="captcha-icon"><i class="fas fa-shield-alt"></i></span>
+                        </label>
+                        <button type="submit" class="btn" id="submitButton">Send Message</button>
+                        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
                     </form>
                 </div>
             </div>
@@ -1569,7 +871,7 @@
                     <a href="https://wa.me/918469645957" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
                 <div class="copyright">
-                    &copy; 2025 Sudeep Yadav. All rights reserved.
+                    &copy; 2026 Sudeep Yadav. All rights reserved.
                 </div>
             </div>
         </div>
@@ -1580,235 +882,6 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <script>
-        // Canvas Animations
-        function setupCanvas(canvasId, particleCount = 80, lineDistance = 150) {
-            const canvas = document.getElementById(canvasId);
-            const ctx = canvas.getContext('2d');
-            
-            // Set canvas size
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-            
-            // Particles array
-            const particles = [];
-            
-            // Create particles
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 3 + 1,
-                    speedX: Math.random() * 1 - 0.5,
-                    speedY: Math.random() * 1 - 0.5
-                });
-            }
-            
-            // Animation loop
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                // Draw particles
-                for (let i = 0; i < particles.length; i++) {
-                    const p = particles[i];
-                    
-                    // Update position
-                    p.x += p.speedX;
-                    p.y += p.speedY;
-                    
-                    // Bounce off edges
-                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-                    
-                    // Draw particle
-                    ctx.fillStyle = `rgba(52, 152, 219, ${p.size / 3})`;
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    ctx.fill();
-                    
-                    // Draw lines
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const p2 = particles[j];
-                        const distance = Math.sqrt(
-                            Math.pow(p.x - p2.x, 2) + 
-                            Math.pow(p.y - p2.y, 2)
-                        );
-                        
-                        if (distance < lineDistance) {
-                            ctx.strokeStyle = `rgba(52, 152, 219, ${1 - distance / lineDistance})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.beginPath();
-                            ctx.moveTo(p.x, p.y);
-                            ctx.lineTo(p2.x, p2.y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-                
-                requestAnimationFrame(animate);
-            }
-            
-            // Handle resize
-            window.addEventListener('resize', () => {
-                canvas.width = canvas.offsetWidth;
-                canvas.height = canvas.offsetHeight;
-            });
-            
-            animate();
-        }
-        
-        // Initialize all canvases
-        document.addEventListener('DOMContentLoaded', () => {
-            setupCanvas('headerCanvas', 100, 200);
-            setupCanvas('aboutCanvas');
-            setupCanvas('experienceCanvas');
-            setupCanvas('projectsCanvas');
-            setupCanvas('skillsCanvas');
-            setupCanvas('contactCanvas');
-        });
-        
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-            this.classList.toggle('fa-times');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
-                document.querySelector('.menu-toggle').classList.remove('fa-times');
-            });
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active nav link
-                    document.querySelectorAll('.nav-links a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                }
-            });
-        });
-        
-        // Update active nav link on scroll
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    document.querySelectorAll('.nav-links a').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        });
-        
-        // Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
-            } else {
-                backToTopButton.classList.remove('active');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Animate timeline items on scroll
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        
-        function checkTimelineItems() {
-            timelineItems.forEach(item => {
-                const itemTop = item.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (itemTop < windowHeight - 100) {
-                    item.classList.add('visible');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', checkTimelineItems);
-        window.addEventListener('load', checkTimelineItems);
-        
-        // Animate skill bars on scroll
-        const skillBars = document.querySelectorAll('.skill-progress');
-        
-        function animateSkillBars() {
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-        }
-        
-        const skillsSection = document.querySelector('#skills');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkillBars();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        
-        observer.observe(skillsSection);
-        
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            const whatsappMessage = `New Contact Form Submission:
-Name: ${name}
-Email: ${email}
-Subject: ${subject}
-Message: ${message}`;
-            
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            window.open(`https://wa.me/918469645957?text=${encodedMessage}`, '_blank');
-            
-            // Reset form
-            this.reset();
-            
-            // Show success message
-            alert('Thank you for your message! You will be redirected to WhatsApp to complete the conversation.');
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
