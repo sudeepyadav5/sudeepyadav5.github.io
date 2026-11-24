@@ -84,6 +84,21 @@ header {
     flex-direction: column;
     align-items: center;
     position: relative;
+    animation: heroReveal 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-profile::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(168, 216, 255, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 28px rgba(52, 152, 219, 0.18);
+    transform: translateX(-50%);
+    animation: haloPulse 5s ease-in-out infinite;
 }
 
 .profile-img {
@@ -95,6 +110,8 @@ header {
     margin-bottom: 1.5rem;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    position: relative;
+    z-index: 1;
 }
 
 .availability-badge {
@@ -113,6 +130,8 @@ header {
     letter-spacing: 0.4px;
     text-transform: uppercase;
     backdrop-filter: blur(8px);
+    position: relative;
+    z-index: 1;
 }
 
 .availability-badge i {
@@ -135,12 +154,25 @@ h1 {
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+header h1,
+.hero-role,
+.tagline,
+.hero-actions,
+.social-links {
+    animation: heroReveal 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+header h1 {
+    animation-delay: 80ms;
+}
+
 .hero-role {
     margin-bottom: 1rem;
     color: #a8d8ff;
     font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 0.3px;
+    animation-delay: 160ms;
 }
 
 .tagline {
@@ -149,6 +181,7 @@ h1 {
     font-size: 1.15rem;
     opacity: 0.92;
     font-weight: 300;
+    animation-delay: 240ms;
 }
 
 .hero-highlights {
@@ -167,6 +200,23 @@ h1 {
     color: rgba(255,255,255,0.86);
     font-size: 0.9rem;
     backdrop-filter: blur(8px);
+    animation: heroReveal 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-highlights span:nth-child(1) {
+    animation-delay: 320ms;
+}
+
+.hero-highlights span:nth-child(2) {
+    animation-delay: 400ms;
+}
+
+.hero-highlights span:nth-child(3) {
+    animation-delay: 480ms;
+}
+
+.hero-highlights span:nth-child(4) {
+    animation-delay: 560ms;
 }
 
 .hero-highlights strong {
@@ -183,6 +233,7 @@ h1 {
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 0.5rem;
+    animation-delay: 640ms;
 }
 
 .hero-btn {
@@ -220,6 +271,7 @@ h1 {
     gap: 1.5rem;
     margin-top: 2rem;
     flex-wrap: wrap;
+    animation-delay: 720ms;
 }
 
 .social-links a {
@@ -1986,6 +2038,19 @@ footer {
 }
 
 /* Animations */
+.scroll-reveal {
+    opacity: 0;
+    translate: 0 22px;
+    transition:
+        opacity 0.65s ease var(--reveal-delay, 0ms),
+        translate 0.65s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1994,6 +2059,30 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes haloPulse {
+    0%, 100% {
+        opacity: 0.45;
+        scale: 0.98;
+    }
+
+    50% {
+        opacity: 0.9;
+        scale: 1.04;
     }
 }
 
@@ -2200,6 +2289,30 @@ footer {
 
     .contact-info, .contact-form {
         padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-profile::before {
+        width: 170px;
+        height: 170px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .scroll-reveal,
+    .scroll-reveal.is-visible {
+        opacity: 1;
+        translate: none;
     }
 
     .skill-highlights {
