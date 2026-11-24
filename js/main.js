@@ -1,7 +1,9 @@
 (() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function setupCanvas(canvasId, particleCount = 80, lineDistance = 150) {
         const canvas = document.getElementById(canvasId);
-        if (!canvas) return;
+        if (!canvas || prefersReducedMotion) return;
 
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
@@ -63,6 +65,40 @@
         animate();
     }
 
+    function setupScrollReveals() {
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) return;
+
+        const revealGroups = [
+            '.section-title',
+            '.about-text, .about-profile-card',
+            '.experience-highlight-card',
+            '.current-project-card',
+            '.project-section-heading',
+            '.project-card',
+        ];
+
+        revealGroups.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((element, index) => {
+                element.classList.add('scroll-reveal');
+                element.style.setProperty('--reveal-delay', `${Math.min(index, 4) * 80}ms`);
+            });
+        });
+
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add('is-visible');
+                currentObserver.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -36px 0px',
+        });
+
+        document.querySelectorAll('.scroll-reveal').forEach((element) => observer.observe(element));
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         setupCanvas('headerCanvas', 100, 200);
         setupCanvas('aboutCanvas');
@@ -70,6 +106,7 @@
         setupCanvas('projectsCanvas');
         setupCanvas('skillsCanvas');
         setupCanvas('contactCanvas');
+        setupScrollReveals();
 
         const menuToggle = document.querySelector('.menu-toggle');
         const menuIcon = menuToggle?.querySelector('i');
@@ -147,7 +184,7 @@
 
         function checkTimelineItems() {
             timelineItems.forEach((item) => {
-                if (item.getBoundingClientRect().top < window.innerHeight - 100) {
+                if (prefersReducedMotion || item.getBoundingClientRect().top < window.innerHeight - 100) {
                     item.classList.add('visible');
                 }
             });
