@@ -11,12 +11,17 @@ Static portfolio website for Sudeep Yadav, organized for GitHub Pages hosting.
 │   └── styles.css
 ├── js/
 │   └── main.js
+├── google-apps-script/
+│   └── contact-form.gs
+├── GOOGLE_APPS_SCRIPT_SETUP.md
 └── assets/
     ├── documents/
     └── images/
-        ├── backgrounds/
+        ├── favicon.png
         ├── profile/
         └── projects/
 ```
+
+Downloadable CV and cover-letter files are stored in `assets/documents/`.
 
 Open `index.html` directly or publish the repository with GitHub Pages.
